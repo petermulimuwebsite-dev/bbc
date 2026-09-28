@@ -9,12 +9,14 @@ const pillars = [
 ];
 ---
 <Base title="Home">
-<section class="hero"><Photo src="hero.jpg" alt="" class="hero-img"/><div class="rings" aria-hidden="true"></div>
- <div class="wrap hero-in"><h1>Welcome to<br/>{site.name}</h1>
+<section class="hero"><Photo src="hero.jpg" alt="" class="hero-img"/>
+ <div class="wrap hero-in"><h1>Welcome to<br/>{site.name}</h1><hr class="rule"/>
  <p class="lede">Planting churches, drilling wells, raising children and restoring lives across Kenya.</p>
- <div class="btns"><a class="btn" href="/ministries">Our ministries</a><a class="btn ghost" href="/give">Give</a></div></div></section>
+ <div class="btns"><a class="btn ghost" href="/beliefs">What we believe</a><a class="btn ghost" href="/ministries">Our ministries</a></div></div></section>
 
-<section class="wrap intro"><p>{site.services}</p><h2>Our church runs on five pillars of evangelism.</h2></section>
+<section class="visit"><div class="wrap"><h2>Visit us</h2><p class="det">{site.services}</p><p class="det"><a href={`tel:${site.phone}`}>{site.phone}</a></p></div></section>
+
+<section class="wrap intro"><h2>Our church runs on five pillars of evangelism.</h2></section>
 
 <section class="wrap pillars">{pillars.map(([t,d,h,img],i)=>(
  <a href={h} class:list={["pillar",{flip:i%2}]}>
@@ -22,7 +24,7 @@ const pillars = [
   {img ? <Photo src={img} alt={t} class="pimg"/> : <div class="pimg solid"></div>}
  </a>))}</section>
 
-<section class="band"><div class="wrap bandin"><div><h2>Bring clean water to a community with no well.</h2><p>Every borehole is a place to share the living water of Christ.</p></div><a class="btn gold" href="/give#water">Give to Jacob’s Well</a></div></section>
+<section class="band"><div class="wrap bandin"><div><h2>Bring clean water to a community with no well.</h2><p>Every borehole is a place to share the living water of Christ.</p></div><a class="btn light" href="/give#water">Give to Jacob’s Well</a></div></section>
 
 <section class="wrap split"><div><h2>Get connected</h2><p>We’d love to hear from you. Send a message and we’ll reply.</p><p class="big"><a href={`tel:${site.phone}`}>{site.phone}</a></p></div><ContactForm/></section>
 </Base>

@@ -1,18 +1,20 @@
 ---
-import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource-variable/newsreader";
+import "@fontsource-variable/rokkitt";
+import "@fontsource/lato/400.css";
+import "@fontsource/lato/700.css";
 import "../styles/global.css";
 import { site } from "../config";
 const { title, description = "A Bible-based church planting, clean water, children's home, restoration and skills ministry in Kenya." } = Astro.props;
 const path = Astro.url.pathname;
-const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministries","Ministries"],["/give","Give"],["/contact","Contact"]];
+const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministries","Ministries"],["/contact","Contact"],["/give","Give"]];
 ---
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>{title} | {site.name}</title><meta name="description" content={description}/><meta name="theme-color" content="#0b2b33"/></head>
+<title>{title} | {site.name}</title><meta name="description" content={description}/><meta name="theme-color" content="#8c6d4b"/>
+<script is:inline>document.documentElement.classList.add("js")</script></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-  <a href="/" class="brand"><span class="mark">{site.short}</span><span class="bn">{site.name}</span></a>
+<header class="top" id="top"><div class="wrap">
+  <div class="logo"><a href="/" class="brand"><span class="mark">{site.short}</span><span class="bn">{site.name}</span></a></div>
   <input type="checkbox" id="nav-t" class="nav-t" aria-label="Menu"/><label for="nav-t" class="burger" aria-hidden="true"><i></i></label>
   <nav>{nav.map(([h,l]) => <a href={h} class:list={[{on: h==="/"? path==="/" : path.startsWith(h)}, {pill: h==="/give"}]}>{l}</a>)}</nav>
 </div></header>
@@ -22,4 +24,7 @@ const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministrie
   <div><p class="fh">Contact</p><p><a href={`tel:${site.phone}`}>{site.phone}</a><br/><a href={`https://wa.me/${site.whatsapp}`}>WhatsApp us</a></p></div>
   <div><p class="fh">Give by M-Pesa</p><p>Paybill {site.paybill.number}<br/>Account {site.paybill.account}</p></div>
 </div><p class="wrap copy">© {new Date().getFullYear()} {site.name}</p></footer>
+<script is:inline>
+const t=document.getElementById("top"),f=()=>t.classList.toggle("solid",scrollY>40);f();addEventListener("scroll",f,{passive:true});
+</script>
 </body></html>
