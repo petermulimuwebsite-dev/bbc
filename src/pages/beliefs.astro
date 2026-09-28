@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+const beliefs = [
+ ["One God","We believe there is one God, eternal, all-powerful and perfect in holiness, truth and love. He exists as Father, Son and Holy Spirit, and He made heaven and earth."],
+ ["Jesus Christ","We believe Jesus is the eternal Son of God, born of the virgin Mary, sinless in life, and crucified for our sins. He rose bodily from the dead, ascended to the Father, and will return in glory."],
+ ["The Bible","We believe the 66 books of the Old and New Testaments are the inspired Word of God, true and trustworthy. It is our final authority for faith and life, and we read it with humility and prayer."],
+ ["Humanity and salvation","We believe every person is made in God’s image and has sinned. Salvation is a gift of grace, received by faith in Jesus Christ alone, and never earned by our works."],
+ ["Baptism","We believe baptism is for those who have put their faith in Jesus. Going under the water shows that we have died to our old life and been raised to walk in new life with Christ. It is an act of obedience, and it does not save us."],
+ ["The Lord’s Supper","We believe the Lord’s Supper is a meal of remembrance that Jesus gave to His church. As we share the bread and the cup, we remember His body given and His blood shed for us, we proclaim His death until He returns, and we examine our hearts and are united as one family."],
+ ["The Holy Spirit","We believe the Holy Spirit gives new life, lives in every believer, and equips us to live holy lives and serve others, making Christ known."],
+ ["The church","We believe the church is God’s people from every tribe, language and nation. Its mission is to preach the gospel, make disciples and plant healthy local churches, where believers give themselves to the Word, prayer, worship, fellowship, service and giving."],
+ ["Christ’s return","We believe Jesus will return personally and visibly, will judge the living and the dead, and will make all things new. Those who trust in Him will live with Him forever."],
+];
+---
+<Base title="What we believe">
+<section class="page-h"><div class="wrap"><h1>What we believe</h1><p class="lede">Everything we do is rooted in the Word of God.</p></div></section>
+
+<section class="wrap vm">
+ <div><h2>Our vision</h2><p>To see vibrant, Bible-based churches planted across Kenya and beyond, and communities transformed in body and soul by the gospel of Jesus Christ.</p></div>
+ <div><h2>Our mission</h2><p>BBCC exists to love God, love people and live out the Great Commission. We plant churches, share the living water of Christ through Jacob’s Well, care for children at Nuru Toto, restore hearts through Renewed Hearts Association, and train believers at Hybells Christian School.</p></div>
+</section>
+
+<section class="wrap bel">
+ {beliefs.map(([t,d])=>(<article><h3>{t}</h3><p>{d}</p></article>))}
+</section>
+
+<section class="band"><div class="wrap bandin"><div><h2>Want to know more?</h2><p>Come and visit, or ask us anything about what we believe.</p></div><a class="btn gold" href="/contact">Contact us</a></div></section>
+</Base>

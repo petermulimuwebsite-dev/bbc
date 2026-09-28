@@ -1,0 +1,9 @@
+---
+import Base from "../layouts/Base.astro"; import ContactForm from "../components/ContactForm.astro"; import { site } from "../config";
+---
+<Base title="Contact">
+<section class="page-h"><div class="wrap"><h1>Contact us</h1><p class="lede">Questions, prayer requests or partnership ideas: we’d love to hear from you.</p></div></section>
+<section class="wrap split"><div><h2>Reach us</h2><p class="big"><a href={`tel:${site.phone}`}>{site.phone}</a></p>
+<p><a class="link" href={`https://wa.me/${site.whatsapp}`}>Message on WhatsApp</a></p>
+<h3 class="sm">Give by M-Pesa</h3><p>{site.paybill.business}<br/>Paybill {site.paybill.number}<br/>Account {site.paybill.account}</p></div><ContactForm/></section>
+</Base>

@@ -1,0 +1,12 @@
+---
+import { site } from "../config";
+---
+<form class="form" method="POST" action={site.formEndpoint}>
+  <div class="row2"><label>First name<input name="first_name" required autocomplete="given-name"/></label>
+  <label>Last name<input name="last_name" autocomplete="family-name"/></label></div>
+  <label>Email<input type="email" name="email" required autocomplete="email"/></label>
+  <label>Phone<input type="tel" name="phone" autocomplete="tel"/></label>
+  <label>Message<textarea name="message" rows="5" required></textarea></label>
+  <input type="hidden" name="_subject" value="New message from the church website"/>
+  <button class="btn" type="submit">Send message</button>
+</form>

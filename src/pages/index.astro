@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import ContactForm from "../components/ContactForm.astro"; import { site } from "../config";
+const pillars = [
+ ["Church planting and evangelism","Vibrant, locally led congregations with Bible-based leadership that preach the gospel and disciple believers.","/ministries#church-planting","lawrence-baptising.jpg"],
+ ["Jacob’s Well clean water project","Solar-powered boreholes and purification, with a disciple ready to share the living water of John 4.","/ministries#water","water-drilling-truck.jpg"],
+ ["Nuru Toto children’s home","A safe, loving home for 30 children of the light: housing, meals, healthcare, school and the Word every day.","/ministries#nuru-toto","children/children-1.jpg"],
+ ["Renewed Hearts Association","Pastoral counseling and recovery for people facing addiction, divorce and hardship.","/ministries#renewed-hearts",""],
+ ["Hybells Christian School","Faith foundations and market-ready trades that turn poverty into dignified work.","/ministries#hybells",""],
+];
+---
+<Base title="Home">
+<section class="hero"><Photo src="hero.jpg" alt="" class="hero-img"/><div class="rings" aria-hidden="true"></div>
+ <div class="wrap hero-in"><h1>Welcome to<br/>{site.name}</h1>
+ <p class="lede">Planting churches, drilling wells, raising children and restoring lives across Kenya.</p>
+ <div class="btns"><a class="btn" href="/ministries">Our ministries</a><a class="btn ghost" href="/give">Give</a></div></div></section>
+
+<section class="wrap intro"><p>{site.services}</p><h2>Our church runs on five pillars of evangelism.</h2></section>
+
+<section class="wrap pillars">{pillars.map(([t,d,h,img],i)=>(
+ <a href={h} class:list={["pillar",{flip:i%2}]}>
+  <div class="ptext"><h3>{t}</h3><p>{d}</p><span class="more">Learn more</span></div>
+  {img ? <Photo src={img} alt={t} class="pimg"/> : <div class="pimg solid"></div>}
+ </a>))}</section>
+
+<section class="band"><div class="wrap bandin"><div><h2>Bring clean water to a community with no well.</h2><p>Every borehole is a place to share the living water of Christ.</p></div><a class="btn gold" href="/give#water">Give to Jacob’s Well</a></div></section>
+
+<section class="wrap split"><div><h2>Get connected</h2><p>We’d love to hear from you. Send a message and we’ll reply.</p><p class="big"><a href={`tel:${site.phone}`}>{site.phone}</a></p></div><ContactForm/></section>
+</Base>

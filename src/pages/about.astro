@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import { staff } from "../config";
+---
+<Base title="About">
+<section class="page-h"><div class="wrap"><h1>About us</h1><p class="lede">A Bible-based church committed to preaching the gospel, discipling believers and serving communities in Jesus’ name.</p></div></section>
+<section class="wrap prose"><h2>Our approach</h2>
+<p>Bible Believers Church of Christ (BBCC) works through five interconnected pillars: church planting, the Jacob’s Well clean water project, Nuru Toto children’s home, Renewed Hearts Association and Hybells Christian School. Each one is a way to meet a real need and share the gospel.</p>
+<p><a class="link" href="/beliefs">Our vision, mission and beliefs</a> · <a class="link" href="/ministries">See all five pillars</a></p></section>
+<section class="wrap"><h2 class="sh">Our staff</h2>
+<ol class="staff">{staff.map(s=>(<li><Photo src={s.img} alt={s.name} class="sph"/><h3>{s.name}</h3><p>{s.role}</p></li>))}</ol></section>
+</Base>

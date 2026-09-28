@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro"; import { site } from "../config";
+---
+<Base title="Give">
+<section class="page-h"><div class="wrap"><h1>Give</h1><p class="lede">Your gift funds wells, children’s meals and school fees, and church plants.</p></div></section>
+<section class="wrap give">
+ <div class="gbox" id="mpesa"><h2>M-Pesa Paybill</h2><dl>
+  <dt>Business name</dt><dd>{site.paybill.business}</dd><dt>Paybill number</dt><dd class="num">{site.paybill.number}</dd><dt>Account number</dt><dd class="num">{site.paybill.account}</dd></dl>
+  <p>Go to M-Pesa, choose Lipa na M-Pesa, then Paybill, and enter the numbers above.</p></div>
+
+ <div class="gbox" id="water"><h2>PayPal or Visa card</h2>
+  <p>Cards are processed securely by PayPal. You don’t need a PayPal account.</p>
+  <label>Where should your gift go?<select id="fund"><option value="Jacob's Well water project">Jacob’s Well water project</option><option value="Nuru Toto children's home">Nuru Toto children’s home</option><option value="Church planting">Church planting</option><option value="Where needed most">Where needed most</option></select></label>
+  <div class="amts" role="group" aria-label="Amount in US dollars"><button type="button" data-a="10">$10</button><button type="button" data-a="25" class="sel">$25</button><button type="button" data-a="50">$50</button><button type="button" data-a="100">$100</button></div>
+  <label>Other amount (USD)<input id="other" type="number" min="1" inputmode="numeric" placeholder="e.g. 75"/></label>
+  <a id="pp" class="btn" href="#" rel="noopener">Give with PayPal or card</a>
+  <p class="small">Fund selected: <span id="fl"></span>. PayPal doesn’t carry the fund name, so please send us a message if your gift isn’t for the water project.</p></div>
+</section>
+<script define:vars={{u: site.paypalUser}}>
+let amt=25;const pp=document.getElementById("pp"),f=document.getElementById("fund"),o=document.getElementById("other"),fl=document.getElementById("fl");
+function up(){const a=Number(o.value)||amt;pp.href=`https://www.paypal.com/paypalme/${u}/${a}USD`;fl.textContent=f.value;pp.textContent=`Give $${a} with PayPal or card`}
+document.querySelectorAll(".amts button").forEach(b=>b.onclick=()=>{amt=+b.dataset.a;o.value="";document.querySelectorAll(".amts button").forEach(x=>x.classList.toggle("sel",x===b));up()});
+o.oninput=()=>{document.querySelectorAll(".amts button").forEach(x=>x.classList.remove("sel"));up()};f.onchange=up;
+if(location.hash==="#nuru")f.value="Nuru Toto children's home";up();
+</script>
+</Base>
