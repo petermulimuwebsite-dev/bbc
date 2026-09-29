@@ -1,5 +1,5 @@
 ---
-import Base from "../layouts/Base.astro"; import { site } from "../config";
+import Base from "../layouts/Base.astro"; import { site, bookInfo } from "../config";
 ---
 <Base title="Give">
 <section class="page-h"><div class="wrap"><h1>Give</h1><p class="lede">Your gift funds wells, children’s meals and school fees, and church plants.</p></div></section>
@@ -15,6 +15,9 @@ import Base from "../layouts/Base.astro"; import { site } from "../config";
   <label>Other amount (USD)<input id="other" type="number" min="1" inputmode="numeric" placeholder="e.g. 75"/></label>
   <a id="pp" class="btn" href="#" rel="noopener">Give with PayPal or card</a>
   <p class="small">Fund selected: <span id="fl"></span>. PayPal doesn’t carry the fund name, so please send us a message if your gift isn’t for the water project.</p></div>
+<div class="gbox wide" id="books"><h2>Buy a book by M-Pesa</h2><p>{bookInfo.price} per copy. Your softcopy is sent by email after you pay.</p>
+ <dl><dt>Paybill number</dt><dd class="num">{bookInfo.paybill}</dd><dt>Account number</dt><dd class="num">{bookInfo.account}</dd><dt>Account name</dt><dd>{bookInfo.accountName}</dd></dl>
+ <p>After paying, email your M-Pesa confirmation code, your name and the book title to <a class="link" href={`mailto:${bookInfo.email}`}>{bookInfo.email}</a>.</p></div>
 </section>
 <script define:vars={{u: site.paypalUser}}>
 let amt=25;const pp=document.getElementById("pp"),f=document.getElementById("fund"),o=document.getElementById("other"),fl=document.getElementById("fl");

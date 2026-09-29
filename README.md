@@ -12,3 +12,5 @@
 Also add (all optional; each slot shows a labelled placeholder until the file exists):
    gallery/worship.jpg, gallery/fellowship.jpg, gallery/community.jpg, renewed-hearts.jpg, hybells-students.jpg
    Hero video: public/videos/hero.mp4 (muted, looping, ~10-20s, under 8 MB). hero.jpg is used as its poster and as the fallback.
+
+Books: edit `books` and `bookInfo` in `src/config.ts`. Photos or video from a public URL: paste it into `src/images.ts` (your own file in public/ always wins).

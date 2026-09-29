@@ -1,5 +1,5 @@
 ---
-import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import Video from "../components/Video.astro"; import ContactForm from "../components/ContactForm.astro"; import { site } from "../config";
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import Video from "../components/Video.astro"; import ContactForm from "../components/ContactForm.astro"; import { site, books, bookInfo } from "../config";
 const pillars = [
  ["Church planting and evangelism","Vibrant, locally led congregations with Bible-based leadership that preach the gospel and disciple believers.","/ministries#church-planting","lawrence-baptising.jpg"],
  ["Jacob’s Well clean water project","Solar-powered boreholes and purification, with a disciple ready to share the living water of John 4.","/ministries#water","water-drilling-truck.jpg"],
@@ -27,6 +27,11 @@ const pillars = [
  </a>))}</section>
 
 <section class="band"><div class="wrap bandin"><div><h2>Bring clean water to a community with no well.</h2><p>Every borehole is a place to share the living water of Christ.</p></div><a class="btn light" href="/give#water">Give to Jacob’s Well</a></div></section>
+
+<section id="books" class="wrap books"><h2>Books by {bookInfo.author}</h2>
+<p class="bk-lede">Both books are available as softcopy (PDF / eBook) at {bookInfo.price} each. Pay by M-Pesa and receive your copy by email.</p>
+<div class="bk-grid">{books.map(b=>(<article class="bk"><div class="bk-cover" style={`background:${b.cover}`}><span class="bk-price">{bookInfo.price}</span><span class="bk-cat">{b.cat}</span><h3>{b.title}</h3><p class="bk-sub">{b.sub}</p><p class="bk-au">{bookInfo.author}</p></div>
+<div class="bk-body"><span class="tag">{bookInfo.format}</span><p>{b.desc}</p><div class="bk-btns"><a class="btn" href="/give#books">Buy softcopy</a><a class="btn line" href={`mailto:${bookInfo.email}?subject=${encodeURIComponent("Book order: "+b.title)}`}>Email to order</a></div></div></article>))}</div></section>
 
 <section class="wrap split"><div><h2>Get connected</h2><p>We’d love to hear from you. Send a message and we’ll reply.</p><p class="big"><a href={`tel:${site.phone}`}>{site.phone}</a></p></div><ContactForm/></section>
 </Base>

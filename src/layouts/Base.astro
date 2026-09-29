@@ -6,7 +6,7 @@ import "../styles/global.css";
 import { site } from "../config";
 const { title, description = "A Bible-based church planting, clean water, children's home, restoration and skills ministry in Kenya." } = Astro.props;
 const path = Astro.url.pathname;
-const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministries","Ministries"],["/contact","Contact"],["/give","Give"]];
+const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministries","Ministries"],["/#books","Books"],["/contact","Contact"],["/give","Give"]];
 ---
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>{title} | {site.name}</title><meta name="description" content={description}/><meta name="theme-color" content="#8c6d4b"/>
