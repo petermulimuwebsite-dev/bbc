@@ -14,3 +14,10 @@ Also add (all optional; each slot shows a labelled placeholder until the file ex
    Hero video: public/videos/hero.mp4 (muted, looping, ~10-20s, under 8 MB). hero.jpg is used as its poster and as the fallback.
 
 Books: edit `books` and `bookInfo` in `src/config.ts`. Photos or video from a public URL: paste it into `src/images.ts` (your own file in public/ always wins).
+
+Fill in photos and the hero video automatically (free Unsplash + Pexels libraries):
+1. Get a free Unsplash key (unsplash.com/developers, "New Application", copy the Access Key) and a free Pexels key (pexels.com/api).
+2. PowerShell:  $env:UNSPLASH_ACCESS_KEY="your-key"; $env:PEXELS_API_KEY="your-key"; npm run media
+   Mac/Linux:   UNSPLASH_ACCESS_KEY=your-key PEXELS_API_KEY=your-key npm run media
+3. Files land in public/images and public/videos, and credits are written to MEDIA-CREDITS.md.
+4. Look at each result. To swap one, run e.g.  npm run media -- gallery/worship.jpg 3  (3 = the 4th search result).
