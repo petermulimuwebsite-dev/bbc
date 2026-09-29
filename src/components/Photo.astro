@@ -5,4 +5,4 @@ const found = fs.existsSync(path.join(process.cwd(), "public/images", src));
 const initials = alt.split(" ").map((w:string)=>w[0]).slice(0,2).join("");
 ---
 {found ? <img src={`/images/${src}`} alt={alt} loading="lazy" class={cls} /> :
-  <div class={`ph ${cls}`} role="img" aria-label={alt || label}><span>{initials || "Photo"}</span><small>public/images/{src}</small></div>}
+  <div class={`ph ${cls}`} role="img" aria-label={alt || label}><span>{initials || "Photo"}</span><small>{alt}</small><small>public/images/{src}</small></div>}
