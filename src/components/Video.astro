@@ -1,8 +1,9 @@
 ---
-import { remoteVideos } from "../images"; import fs from "node:fs"; import path from "node:path";
+import { remoteVideos, remoteImages } from "../images"; import fs from "node:fs"; import path from "node:path";
 const { src, poster = "", class: cls = "" } = Astro.props;
 const found = fs.existsSync(path.join(process.cwd(), "public/videos", src));
 const url = found ? `/videos/${src}` : remoteVideos[src];
-const hasPoster = poster && fs.existsSync(path.join(process.cwd(), "public/images", poster));
+const localPoster = poster && fs.existsSync(path.join(process.cwd(), "public/images", poster));
+const posterUrl = localPoster ? `/images/${poster}` : remoteImages[poster];
 ---
-{url && <video class={cls} autoplay muted loop playsinline preload="metadata" poster={hasPoster ? `/images/${poster}` : undefined} aria-hidden="true"><source src={url} type="video/mp4"/></video>}
+{url && <video class={cls} autoplay muted loop playsinline preload="metadata" poster={posterUrl} aria-hidden="true"><source src={url} type="video/mp4"/></video>}
