@@ -6,4 +6,4 @@ const url = found ? `/videos/${src}` : remoteVideos[src];
 const localPoster = poster && fs.existsSync(path.join(process.cwd(), "public/images", poster));
 const posterUrl = localPoster ? `/images/${poster}` : remoteImages[poster];
 ---
-{url && <video class={cls} autoplay muted loop playsinline preload="metadata" poster={posterUrl} aria-hidden="true"><source src={url} type="video/mp4"/></video>}
+{url && <video class={cls} autoplay muted loop playsinline preload="auto" poster={posterUrl} aria-hidden="true"><source src={url} type="video/mp4"/></video>}
