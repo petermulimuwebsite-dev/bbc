@@ -73,8 +73,11 @@ try{
     });
     /* anything already scrolled past (e.g. reloaded mid-page) just shows */
     entries.forEach(e=>{if(!e.isIntersecting&&e.boundingClientRect.bottom<0){io.unobserve(e.target);e.target.removeAttribute("data-reveal")}});
-  },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  },{threshold:0,rootMargin:"0px 0px -4% 0px"});
   els.forEach(e=>io.observe(e));
+  /* failsafe: never leave anything on screen hidden */
+  const show=()=>els.forEach(e=>{if(e.hasAttribute("data-reveal")){const r=e.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0){io.unobserve(e);e.removeAttribute("data-reveal")}}});
+  setTimeout(show,2500);addEventListener("load",()=>setTimeout(show,1500));
 }catch(err){els.forEach(e=>e.removeAttribute("data-reveal"))}
 })();
 </script>
