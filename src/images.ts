@@ -8,7 +8,7 @@ const av = (name: string) => `https://ui-avatars.com/api/?name=${encodeURICompon
 
 export const remoteImages: Record<string, string> = {
   // Hero poster / fallback: frame from the Pexels hero video below
-  "hero.jpg": "https://images.pexels.com/videos/15039379/pexels-photo-15039379.jpeg?auto=compress&w=1800",
+  "hero.jpg": "https://images.pexels.com/videos/7520500/pexels-photo-7520500.jpeg?auto=compress&w=1800",
 
   // Home page gallery
   "gallery/worship.jpg": u("photo-1647957902647-0337913440fc"),     // woman leading worship with a microphone
@@ -35,6 +35,6 @@ export const remoteImages: Record<string, string> = {
   "staff/harriet-karemi.jpg": av("Harriet Karemi"),
 };
 export const remoteVideos: Record<string, string> = {
-  // Pexels, "A group of women worshipping while raising hands" by Luis Quintero (6s loop, 1080p, free licence). To change: paste another direct .mp4 link here.
-  "hero.mp4": "https://videos.pexels.com/video-files/15039379/15039379-hd_1920_1080_60fps.mp4",
+  // Pexels, "A diverse choir passionately sings in a sunlit church" by cottonbro studio (tagged Black choir, gospel; large 4K file, so a smaller copy in public/videos/hero.mp4 will load faster). To change: paste another direct .mp4 link here.
+  "hero.mp4": "https://videos.pexels.com/video-files/7520500/7520500-uhd_2732_1440_25fps.mp4",
 };

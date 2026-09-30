@@ -1,5 +1,5 @@
 # Media credits (all free to use)
-- Hero video: "A group of women worshipping while raising hands" by Luis Quintero on Pexels https://www.pexels.com/video/a-group-of-women-worshipping-while-raising-hands-15039379/
+- Hero video: "A diverse choir passionately sings in a sunlit church" by cottonbro studio on Pexels https://www.pexels.com/video/a-choir-singing-inside-the-church-7520500/
 - gallery/worship.jpg: Andile Mnothoza, Unsplash https://unsplash.com/photos/K5yNGK2Jw4w
 - gallery/fellowship.jpg: Danique Godwin, Unsplash https://unsplash.com/photos/IsLMV9Tane4
 - gallery/community.jpg: Tiry Nelson Gono, Unsplash https://unsplash.com/photos/hMJRg09kuew
