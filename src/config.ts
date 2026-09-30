@@ -23,8 +23,8 @@ export const staff = [
 // Books by Pastor Peter Milimo (details from petermilimo.org). Books are paid to a separate account from church giving.
 export const bookInfo = { author: "Peter Milimo", price: "KSh 1,200", format: "Softcopy (PDF / eBook)", email: "biblebcc@gmail.com", paybill: "400200", account: "1169454", accountName: "Peter M. Kisiangani" };
 export const books = [
-  { cat: "Single parenting & family", title: "When One Becomes Both", sub: "How Single Parents Rise, Heal and Build Strong Families Against All Odds", cover: "linear-gradient(160deg,#173a85,#06122e)",
+  { cat: "Single parenting & family", title: "When One Becomes Both", sub: "How Single Parents Rise, Heal and Build Strong Families Against All Odds", cover: "linear-gradient(160deg,#8c6d4b,#3a2c1c)",
     desc: "A powerful, compassionate guide for single parents navigating the journey of raising a family alone, covering healing, resilience, identity, and building a home that thrives against every odd." },
-  { cat: "Marriage & family", title: "The Thirteen Effective Pillars of a Covenant Marriage", sub: "A Biblical Guide for Building a Strong, Faithful & Divorce-Resistant Union", cover: "linear-gradient(160deg,#6a2027,#240a0d)",
+  { cat: "Marriage & family", title: "The Thirteen Effective Pillars of a Covenant Marriage", sub: "A Biblical Guide for Building a Strong, Faithful & Divorce-Resistant Union", cover: "linear-gradient(160deg,#574530,#2b2116)",
     desc: "An in-depth biblical roadmap through thirteen essential pillars every covenant marriage must stand on, equipping couples to build a strong, faithful, and divorce-resistant union grounded in God’s Word." },
 ];

@@ -7,3 +7,7 @@
 - children/children-2.jpg: bill wegener, Unsplash https://unsplash.com/photos/7MD4DR9jbP0
 - children/children-3.jpg: Doug Linstedt, Unsplash https://unsplash.com/photos/jEEYZsaxbH4
 - hybells-students.jpg: Annie Spratt, Unsplash https://unsplash.com/photos/feU8G7E5ODI
+- lawrence-baptising.jpg: Paul Ndayambaje, Pexels https://www.pexels.com/photo/a-man-is-being-baptized-in-a-pool-28181220/
+- water-drilling-truck.jpg: Rahul Bokhare, Pexels https://www.pexels.com/photo/worker-watching-a-machine-drilling-a-well-21047659/
+- renewed-hearts.jpg: same photo as gallery/fellowship.jpg (Danique Godwin, Unsplash)
+- staff/*: generated initials avatars from ui-avatars.com (placeholders, replace with real photos)

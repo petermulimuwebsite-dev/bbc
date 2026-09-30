@@ -3,6 +3,9 @@
 // Sources: Unsplash (free, no attribution required) and Pexels (free licence). Credits are listed in MEDIA-CREDITS.md.
 const u = (id: string, w = 1400) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
+const px = (id: number, w = 1400) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+const av = (name: string) => `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=600&background=3a2c1c&color=f5ead6&bold=true&format=png`;
+
 export const remoteImages: Record<string, string> = {
   // Hero poster / fallback: frame from the Pexels gospel choir video below
   "hero.jpg": "https://images.pexels.com/videos/16863297/african-american-african-american-culture-african-american-females-african-american-group-16863297.jpeg?auto=compress&w=1800",
@@ -20,10 +23,17 @@ export const remoteImages: Record<string, string> = {
   // Hybells Christian School
   "hybells-students.jpg": u("photo-1567057420215-0afa9aa9253a"),    // children writing in books
 
-  // Still to fill (no verified free link yet): use `npm run media` or your own photos
-  // "lawrence-baptising.jpg": "",
-  // "water-drilling-truck.jpg": "",
-  // "renewed-hearts.jpg": "",
+  // Ministries (Pexels, free licence). Swap for your own photos in public/images any time: a local file always wins.
+  "lawrence-baptising.jpg": px(28181220),   // pastor baptising a man (stand-in for Lawrence Odada)
+  "water-drilling-truck.jpg": px(21047659), // water well drilling rig at work (stand-in for the Jacob's Well rig)
+  "renewed-hearts.jpg": u("photo-1604072424771-7300bc5de457"), // stand-in: people seated together in church (same photo as gallery/fellowship)
+
+  // Staff: initials avatars until you have each person's real photo (drop the file in public/images/staff/ and it replaces these)
+  "staff/peter-milimo.jpg": av("Peter Milimo"),
+  "staff/felix-matuvwi.jpg": av("Felix Matuvwi"),
+  "staff/lawrence-odada.jpg": av("Lawrence Odada"),
+  "staff/judith-kanini.jpg": av("Judith Kanini"),
+  "staff/harriet-karemi.jpg": av("Harriet Karemi"),
 };
 export const remoteVideos: Record<string, string> = {
   // Pexels, "Gospel Choir" by Shout! Productions (20s, 1080p, free licence)

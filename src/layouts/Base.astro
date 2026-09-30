@@ -13,6 +13,7 @@ const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministrie
 <script is:inline>document.documentElement.classList.add("js")</script></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="prog" id="prog" aria-hidden="true"></div>
 <header class="top" id="top"><div class="wrap">
   <div class="logo"><a href="/" class="brand"><span class="mark">{site.short}</span><span class="bn">{site.name}</span></a></div>
   <input type="checkbox" id="nav-t" class="nav-t" aria-label="Menu"/><label for="nav-t" class="burger" aria-hidden="true"><i></i></label>
@@ -25,6 +26,56 @@ const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministrie
   <div><p class="fh">Give by M-Pesa</p><p>Paybill {site.paybill.number}<br/>Account {site.paybill.account}</p></div>
 </div><p class="wrap copy">© {new Date().getFullYear()} {site.name}</p></footer>
 <script is:inline>
-const t=document.getElementById("top"),f=()=>t.classList.toggle("solid",scrollY>40);f();addEventListener("scroll",f,{passive:true});
+(()=>{
+const d=document,root=d.documentElement,top=d.getElementById("top"),navT=d.getElementById("nav-t"),bar=d.getElementById("prog");
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const hero=d.querySelector(".hero");
+let last=scrollY,queued=false;
+
+/* one rAF-throttled scroll handler: solid header, hide/show header, progress line, hero parallax */
+function frame(){
+  queued=false;const y=scrollY,max=root.scrollHeight-innerHeight;
+  top.classList.toggle("solid",y>40);
+  if(bar)bar.style.transform="scaleX("+(max>0?Math.min(Math.max(y/max,0),1):0)+")";
+  if(rm)return;
+  if(y<=480){top.classList.remove("hide");last=y}
+  else if(y-last>6&&!(navT&&navT.checked)){top.classList.add("hide");last=y}
+  else if(last-y>6){top.classList.remove("hide");last=y}
+  if(hero&&y<innerHeight*1.3){
+    const p=Math.min(y/(hero.offsetHeight*.65),1);
+    hero.style.setProperty("--py",(y*.3).toFixed(1)+"px");
+    hero.style.setProperty("--hy",(y*.12).toFixed(1)+"px");
+    hero.style.setProperty("--hf",(1-p).toFixed(3));
+  }
+}
+const on=()=>{if(!queued){queued=true;requestAnimationFrame(frame)}};
+frame();addEventListener("scroll",on,{passive:true});addEventListener("resize",on);
+top.addEventListener("focusin",()=>top.classList.remove("hide"));
+
+/* reveal on scroll */
+if(rm||!("IntersectionObserver" in window))return;
+const targets=[".visit .wrap > *",".gallery > *",".intro h2",".pillar .ptext",".pillar .pimg",
+ ".band .wrap > :not(.partners)",".partners li",".books h2",".bk-lede",".bk",".split > *",
+ ".prose > *",".sh",".staff li",".m .mt",".mimg",".vm > *",".bel article",".give .gbox",".fgrid > *"];
+const els=[...d.querySelectorAll(targets.join(","))];
+try{
+  els.forEach(e=>e.setAttribute("data-reveal",e.matches(".pimg,.mimg,.gallery > *")?"img":"fade"));
+  const io=new IntersectionObserver(entries=>{
+    /* items that arrive together are staggered in reading order */
+    const seen=entries.filter(e=>e.isIntersecting).sort((a,b)=>{
+      const A=a.boundingClientRect,B=b.boundingClientRect;
+      return Math.round(A.top/60)-Math.round(B.top/60)||A.left-B.left});
+    seen.forEach((e,i)=>{
+      const t=e.target,delay=Math.min(i,6)*.09;io.unobserve(t);
+      t.style.setProperty("--d",delay+"s");
+      requestAnimationFrame(()=>t.classList.add("in"));
+      setTimeout(()=>{t.removeAttribute("data-reveal");t.classList.remove("in");t.style.removeProperty("--d")},(delay+1.8)*1000);
+    });
+    /* anything already scrolled past (e.g. reloaded mid-page) just shows */
+    entries.forEach(e=>{if(!e.isIntersecting&&e.boundingClientRect.bottom<0){io.unobserve(e.target);e.target.removeAttribute("data-reveal")}});
+  },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  els.forEach(e=>io.observe(e));
+}catch(err){els.forEach(e=>e.removeAttribute("data-reveal"))}
+})();
 </script>
 </body></html>
