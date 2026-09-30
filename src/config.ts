@@ -1,6 +1,6 @@
 // Edit the values below. Everything on the site reads from here.
 export const site = {
-  name: "Bible Believers Church of Christ",
+  name: "Bible Believers Christ Church",
   short: "BBCC",
   phone: "+254-748-390-940",
   whatsapp: "254748390940",

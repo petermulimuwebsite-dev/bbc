@@ -7,8 +7,8 @@ const px = (id: number, w = 1400) => `https://images.pexels.com/photos/${id}/pex
 const av = (name: string) => `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=600&background=3a2c1c&color=f5ead6&bold=true&format=png`;
 
 export const remoteImages: Record<string, string> = {
-  // Hero poster / fallback: frame from the Pexels gospel choir video below
-  "hero.jpg": "https://images.pexels.com/videos/16863297/african-american-african-american-culture-african-american-females-african-american-group-16863297.jpeg?auto=compress&w=1800",
+  // Hero poster / fallback: frame from the Pexels hero video below
+  "hero.jpg": "https://images.pexels.com/videos/15039379/pexels-photo-15039379.jpeg?auto=compress&w=1800",
 
   // Home page gallery
   "gallery/worship.jpg": u("photo-1647957902647-0337913440fc"),     // woman leading worship with a microphone
@@ -20,8 +20,7 @@ export const remoteImages: Record<string, string> = {
   "children/children-2.jpg": u("photo-1521493959102-bdd6677fdd81"), // children at a window
   "children/children-3.jpg": u("photo-1473649085228-583485e6e4d7"), // children in a classroom
 
-  // Hybells Christian School
-  "hybells-students.jpg": u("photo-1567057420215-0afa9aa9253a"),    // children writing in books
+  // Hybells Christian School: add public/images/hybells-students.jpg (technical school photo), or paste a photo URL here as "hybells-students.jpg": "https://..."
 
   // Ministries (Pexels, free licence). Swap for your own photos in public/images any time: a local file always wins.
   "lawrence-baptising.jpg": px(28181220),   // pastor baptising a man (stand-in for Lawrence Odada)
@@ -36,6 +35,6 @@ export const remoteImages: Record<string, string> = {
   "staff/harriet-karemi.jpg": av("Harriet Karemi"),
 };
 export const remoteVideos: Record<string, string> = {
-  // Pexels, "Gospel Choir" by Shout! Productions (20s, 1080p, free licence)
-  "hero.mp4": "https://videos.pexels.com/video-files/16863297/16863297-hd_1920_1080_30fps.mp4",
+  // Pexels, "A group of women worshipping while raising hands" by Luis Quintero (6s loop, 1080p, free licence). To change: paste another direct .mp4 link here.
+  "hero.mp4": "https://videos.pexels.com/video-files/15039379/15039379-hd_1920_1080_60fps.mp4",
 };

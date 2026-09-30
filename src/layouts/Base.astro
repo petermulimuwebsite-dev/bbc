@@ -9,13 +9,13 @@ const path = Astro.url.pathname;
 const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministries","Ministries"],["/#books","Books"],["/contact","Contact"],["/give","Give"]];
 ---
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>{title} | {site.name}</title><meta name="description" content={description}/><meta name="theme-color" content="#8c6d4b"/>
+<title>{title} | {site.name}</title><meta name="description" content={description}/><meta name="theme-color" content="#8c6d4b"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <script is:inline>document.documentElement.classList.add("js")</script></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="prog" id="prog" aria-hidden="true"></div>
 <header class="top" id="top"><div class="wrap">
-  <div class="logo"><a href="/" class="brand"><span class="mark">{site.short}</span><span class="bn">{site.name}</span></a></div>
+  <div class="logo"><a href="/" class="brand"><img class="mark" src="/logo-mark.svg" alt="" width="96" height="92"/><span class="bn">{site.name}</span></a></div>
   <input type="checkbox" id="nav-t" class="nav-t" aria-label="Menu"/><label for="nav-t" class="burger" aria-hidden="true"><i></i></label>
   <nav>{nav.map(([h,l]) => <a href={h} class:list={[{on: h==="/"? path==="/" : path.startsWith(h)}, {pill: h==="/give"}]}>{l}</a>)}</nav>
 </div></header>

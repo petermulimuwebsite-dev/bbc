@@ -8,6 +8,7 @@ const U = process.env.UNSPLASH_ACCESS_KEY, P = process.env.PEXELS_API_KEY;
 const args = process.argv.slice(2), force = args.includes("--force");
 const [onlySlot, pickArg] = args.filter(a => !a.startsWith("--")), pick = Number(pickArg || 0);
 const MAX_VIDEO_MB = 8;
+const idArg = (args.find(a => a.startsWith("--id=")) || "").slice(5); // e.g. npm run media -- hero.mp4 --id=1234567 (the number at the end of a pexels.com/video/... link)
 
 // Staff portraits (public/images/staff/*) are deliberately NOT here: use each person's real photo.
 const photos = {
@@ -21,9 +22,9 @@ const photos = {
   "children/children-2.jpg": ["kenyan children playing", "black african kids playing outdoors", "african children playing"],
   "children/children-3.jpg": ["kenyan children classroom", "black african children learning", "african children learning"],
   "renewed-hearts.jpg": ["black man prayer counseling pastor", "african pastor counseling prayer", "pastor praying with man"],
-  "hybells-students.jpg": ["kenyan vocational training students", "black african students workshop trade", "african students vocational training"],
+  "hybells-students.jpg": ["kenya technical training students welding workshop", "african students welding tailoring workshop", "african vocational training students"],
 };
-const video = { "hero.mp4": ["kenya church worship", "african church worship praise", "black people worship singing", "african community celebration"] };
+const video = { "hero.mp4": ["kenya church worship", "african church worship praise", "black people worship singing", "african community celebration", "black choir singing church"] };
 
 const credits = [], missing = [];
 const exists = f => fs.access(f).then(() => true, () => false);
@@ -49,10 +50,11 @@ async function photo(slot, queries) {
 async function clip(slot, queries) {
   const file = path.join("public/videos", slot);
   if (!force && !onlySlot && await exists(file)) return console.log(`  ${slot}  (already there, skipped)`);
+  if (idArg) queries = [null];
   for (const q of queries) {
-    const r = await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&orientation=landscape&per_page=15`, { headers: { Authorization: P } });
+    const r = idArg ? await fetch(`https://api.pexels.com/videos/videos/${idArg}`, { headers: { Authorization: P } }) : await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&orientation=landscape&per_page=15`, { headers: { Authorization: P } });
     if (!r.ok) throw new Error(`Pexels ${r.status} (check PEXELS_API_KEY)`);
-    const list = (await r.json()).videos.filter(v => v.duration >= 6 && v.duration <= 40), v = list[Math.min(pick, list.length - 1)];
+    const list = idArg ? [await r.json()] : (await r.json()).videos.filter(v => v.duration >= 6 && v.duration <= 40), v = list[Math.min(pick, list.length - 1)];
     if (!v) continue;
     // Best quality up to 1280px wide that still fits the size budget; step down if too big.
     const files = v.video_files.filter(f => f.file_type === "video/mp4" && f.width <= 1280).sort((a, b) => b.width - a.width);

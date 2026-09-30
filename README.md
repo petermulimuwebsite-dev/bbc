@@ -24,3 +24,8 @@ Fill in photos and the hero video automatically (free Unsplash + Pexels librarie
    It fills every slot except staff portraits, and skips files you already have (use --force to redo all).
 4. Look at each result. To swap one, run e.g.  npm run media -- gallery/worship.jpg 3  (3 = the 4th search result).
 5. Stock photos are stand-ins. Replace the baptism, Nuru Toto children and staff slots with your real photos before launch.
+
+## Changing the hero video
+The hero video is `public/videos/hero.mp4` (your own footage always wins; ideally real video of your congregation, muted, 10-20s, under 8 MB).
+To pick a free stock clip by eye instead: browse pexels.com/search/videos/kenya%20church/, open a clip you like, and copy the number at the end of its link, then run
+`npm run media -- hero.mp4 --id=THAT_NUMBER` (needs PEXELS_API_KEY). Afterwards run `npm run media -- hero.jpg` or drop in a still from the same clip as the poster.
