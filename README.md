@@ -20,4 +20,7 @@ Fill in photos and the hero video automatically (free Unsplash + Pexels librarie
 2. PowerShell:  $env:UNSPLASH_ACCESS_KEY="your-key"; $env:PEXELS_API_KEY="your-key"; npm run media
    Mac/Linux:   UNSPLASH_ACCESS_KEY=your-key PEXELS_API_KEY=your-key npm run media
 3. Files land in public/images and public/videos, and credits are written to MEDIA-CREDITS.md.
+   Searches favour Kenyan / Black African subjects first, then fall back to broader African, then anything relevant.
+   It fills every slot except staff portraits, and skips files you already have (use --force to redo all).
 4. Look at each result. To swap one, run e.g.  npm run media -- gallery/worship.jpg 3  (3 = the 4th search result).
+5. Stock photos are stand-ins. Replace the baptism, Nuru Toto children and staff slots with your real photos before launch.
