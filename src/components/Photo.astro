@@ -1,8 +1,6 @@
 ---
-import { remoteImages } from "../images"; import fs from "node:fs"; import path from "node:path";
-const { src, alt = "", label = "", class: cls = "" } = Astro.props;
-const found = fs.existsSync(path.join(process.cwd(), "public/images", src));
-const initials = alt.split(" ").map((w:string)=>w[0]).slice(0,2).join("");
+import { hasImg, imgUrl } from "../img";
+// Renders nothing when the file is missing from public/img, so there is never an empty image box.
+const { src, alt = "", class: cls = "", pos = "" } = Astro.props;
 ---
-{found || remoteImages[src] ? <img src={found ? `/images/${src}` : remoteImages[src]} alt={alt} loading="lazy" decoding="async" referrerpolicy="no-referrer" class={cls} data-ph={`public/images/${src}`} onerror="if(!this.dataset.f){this.dataset.f=1;var d=document.createElement('div');d.className=(this.className||'')+' ph';d.setAttribute('role','img');d.innerHTML='<span>Photo</span><small>'+this.alt+'</small><small>'+this.dataset.ph+'</small>';this.replaceWith(d)}" /> :
-  <div class={`ph ${cls}`} role="img" aria-label={alt || label}><span>{initials || "Photo"}</span><small>{alt}</small><small>public/images/{src}</small></div>}
+{hasImg(src) && <img src={imgUrl(src)} alt={alt} loading="lazy" decoding="async" class={cls} style={pos ? `object-position:${pos}` : undefined} />}

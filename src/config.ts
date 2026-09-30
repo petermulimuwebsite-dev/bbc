@@ -12,12 +12,13 @@ export const site = {
   location: "Kenya",
   services: "Sundays. Call us for service times.",
 };
+// Photos live in public/img. If a photo is missing, that person simply shows without one.
 export const staff = [
-  { name: "Peter Milimo", role: "Lead Pastor", img: "staff/peter-milimo.jpg" },
-  { name: "Felix Matuvwi", role: "Youth Pastor", img: "staff/felix-matuvwi.jpg" },
-  { name: "Lawrence Odada", role: "Associate Pastor", img: "staff/lawrence-odada.jpg" },
-  { name: "Judith Kanini", role: "Lead, Women Ministry", img: "staff/judith-kanini.jpg" },
-  { name: "Harriet Karemi", role: "Church staff", img: "staff/harriet-karemi.jpg" },
+  { name: "Peter Milimo", role: "Lead Pastor", img: "Peter Milimo_ Lead Pastor.png", pos: "50% 25%" },
+  { name: "Felix Matuvwi", role: "Youth Pastor and Secretary General", img: "Felix Matuvwi Yourth pastor and the secrtary general.jpg", pos: "50% 25%" },
+  { name: "Lawrence Odada", role: "Pastor, Church Planting, Nyanza Region", img: "LAWRANCE ODADA _ Pastor church planting Nyanza Region.jpg", pos: "50% 30%" },
+  { name: "Judith Kanini", role: "Chairlady and Family Counselor", img: "Judith Kanini chairlady and family counciler.jpg", pos: "50% 30%" },
+  { name: "Harriet Karemi", role: "Sunday School Director", img: "Harriet Karemi sunday school director.jpg", pos: "50% 30%" },
 ];
 
 // Books by Pastor Peter Milimo (details from petermilimo.org). Books are paid to a separate account from church giving.

@@ -1,30 +1,30 @@
 ---
-import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import Video from "../components/Video.astro"; import ContactForm from "../components/ContactForm.astro"; import { site, books, bookInfo } from "../config";
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import ContactForm from "../components/ContactForm.astro"; import { hasImg } from "../img"; import { site, books, bookInfo } from "../config";
 const pillars = [
- ["Church planting and evangelism","Vibrant, locally led congregations with Bible-based leadership that preach the gospel and disciple believers.","/ministries#church-planting","lawrence-baptising.jpg"],
- ["Jacob’s Well clean water project","Solar-powered boreholes and purification, with a disciple ready to share the living water of John 4.","/ministries#water","water-drilling-truck.jpg"],
- ["Nuru Toto children’s home","A safe, loving home for 30 children of the light: housing, meals, healthcare, school and the Word every day.","/ministries#nuru-toto","children/children-1.jpg"],
- ["Renewed Hearts Association","Pastoral counseling and recovery for people facing addiction, divorce and hardship.","/ministries#renewed-hearts","renewed-hearts.jpg"],
- ["Hybells Christian School","A technical school teaching market-ready skills such as welding, masonry, fashion design and video editing, with compulsory Bible courses and leadership development.","/ministries#hybells","hybells-students.jpg"],
+ ["Church planting and evangelism","Vibrant, locally led congregations with Bible-based leadership that preach the gospel and disciple believers.","/ministries#church-planting","Lawrance performing Baptist.jpg","50% 40%"],
+ ["Jacob’s Well clean water project","Solar-powered boreholes and purification, with a disciple ready to share the living water of John 4.","/ministries#water","water drilling.jpg","50% 50%"],
+ ["Nuru Toto children’s home","A safe, loving home for 30 children of the light: housing, meals, healthcare, school and the Word every day.","/ministries#nuru-toto","children 1.jpg","50% 50%"],
+ ["Renewed Hearts Association","Pastoral counseling and recovery for people facing addiction, divorce and hardship.","/ministries#renewed-hearts","",""],
+ ["Hybells Christian School","A technical school teaching market-ready skills such as welding, masonry, fashion design and video editing, with compulsory Bible courses and leadership development.","/ministries#hybells","",""],
 ];
 ---
 <Base title="Home">
-<section class="hero"><Photo src="hero.jpg" alt="" class="hero-img"/><Video src="hero.mp4" poster="hero.jpg" class="hero-vid"/>
+<section class="hero"><Photo src="church cover photo.jpg" alt="" class="hero-img" pos="50% 40%"/>
  <div class="wrap hero-in"><h1>Welcome to<br/>{site.name}</h1><hr class="rule"/>
  <p class="lede">Planting churches, drilling wells, raising children and restoring lives across Kenya.</p>
  <div class="btns"><a class="btn ghost" href="/beliefs">What we believe</a><a class="btn ghost" href="/ministries">Our ministries</a></div></div></section>
 
 <section class="visit"><div class="wrap"><h2>Visit us</h2><p class="det">{site.services}</p><p class="det"><a href={`tel:${site.phone}`}>{site.phone}</a></p></div></section>
 
-<section class="gallery" aria-label="Life at BBCC"><Photo src="gallery/worship.jpg" alt="Kenyan congregation worshipping together"/><Photo src="gallery/fellowship.jpg" alt="Kenyan church members greeting each other after the service"/><Photo src="gallery/community.jpg" alt="Kenyan community members gathered at a BBCC outreach"/></section>
+<section class="gallery" aria-label="Life at BBCC"><Photo src="church.jpg" alt="The congregation gathered for a service"/><Photo src="Church meal.jpg" alt="Church members sharing a meal together"/><Photo src="church picture.jpg" alt="Members and children outside the BBCC church building"/></section>
 
 <section class="wrap intro"><h2>Our church runs on five pillars of evangelism.</h2></section>
 
-<section class="wrap pillars">{pillars.map(([t,d,h,img],i)=>(
- <a href={h} class:list={["pillar",{flip:i%2}]}>
+<section class="wrap pillars">{pillars.map(([t,d,h,img,pos],i)=>{const pic=hasImg(img);return (
+ <a href={h} class:list={["pillar",{flip:pic&&i%2==1,noimg:!pic}]}>
   <div class="ptext"><h3>{t}</h3><p>{d}</p><span class="more">Learn more</span></div>
-  {img ? <Photo src={img} alt={t} class="pimg"/> : <div class="pimg solid"></div>}
- </a>))}</section>
+  {pic && <Photo src={img} alt={t} class="pimg" pos={pos}/>}
+ </a>)})}</section>
 
 <section class="band"><div class="wrap bandin"><div><h2>Bring clean water to a community with no well.</h2><p>Every borehole is a place to share the living water of Christ.</p></div><a class="btn light" href="/give#water">Give to Jacob’s Well</a></div></section>
 

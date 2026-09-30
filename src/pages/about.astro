@@ -1,5 +1,5 @@
 ---
-import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import { staff } from "../config";
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import { hasImg } from "../img"; import { staff } from "../config";
 ---
 <Base title="About Us">
 <section class="page-h"><div class="wrap"><h1>About Us</h1><p class="lede">Taking the Gospel to the unreached, serving communities at their level.</p></div></section>
@@ -30,5 +30,5 @@ import Base from "../layouts/Base.astro"; import Photo from "../components/Photo
 <section class="wrap prose"><p><a class="link" href="/beliefs">What we believe</a> · <a class="link" href="/ministries">See all five pillars</a></p></section>
 
 <section class="wrap"><h2 class="sh">Our staff</h2>
-<ol class="staff">{staff.map(s=>(<li><Photo src={s.img} alt={s.name} class="sph"/><h3>{s.name}</h3><p>{s.role}</p></li>))}</ol></section>
+<ol class="staff">{staff.map(s=>(<li>{hasImg(s.img) && <Photo src={s.img} alt={s.name} class="sph" pos={s.pos}/>}<h3>{s.name}</h3><p>{s.role}</p></li>))}</ol></section>
 </Base>

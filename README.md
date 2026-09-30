@@ -1,31 +1,14 @@
 # BBCC church website (Astro)
+
     npm install
     npm run dev      # local preview
     npm run build    # output in /dist, upload to any host (Netlify, Vercel, Cloudflare Pages)
 
-1. Edit `src/config.ts` for phone, paybill, PayPal username and contact-form URL.
-2. Drop photos into `public/images/` using the file names shown on each grey placeholder:
-   hero.jpg (optional), lawrence-baptising.jpg, water-drilling-truck.jpg,
-   children/children-1.jpg, -2, -3, staff/peter-milimo.jpg, felix-matuvwi.jpg,
-   lawrence-odada.jpg, judith-kanini.jpg, harriet-karemi.jpg
+1. Edit `src/config.ts` for phone, paybill, PayPal username, contact-form URL, staff and books.
+2. All photos are local files in `public/img/`. The site never loads images from the internet.
 
-Also add (all optional; each slot shows a labelled placeholder until the file exists):
-   gallery/worship.jpg, gallery/fellowship.jpg, gallery/community.jpg, renewed-hearts.jpg, hybells-students.jpg
-   Hero video: public/videos/hero.mp4 (muted, looping, ~10-20s, under 8 MB). hero.jpg is used as its poster and as the fallback.
-
-Books: edit `books` and `bookInfo` in `src/config.ts`. Photos or video from a public URL: paste it into `src/images.ts` (your own file in public/ always wins).
-
-Fill in photos and the hero video automatically (free Unsplash + Pexels libraries):
-1. Get a free Unsplash key (unsplash.com/developers, "New Application", copy the Access Key) and a free Pexels key (pexels.com/api).
-2. PowerShell:  $env:UNSPLASH_ACCESS_KEY="your-key"; $env:PEXELS_API_KEY="your-key"; npm run media
-   Mac/Linux:   UNSPLASH_ACCESS_KEY=your-key PEXELS_API_KEY=your-key npm run media
-3. Files land in public/images and public/videos, and credits are written to MEDIA-CREDITS.md.
-   Searches favour Kenyan / Black African subjects first, then fall back to broader African, then anything relevant.
-   It fills every slot except staff portraits, and skips files you already have (use --force to redo all).
-4. Look at each result. To swap one, run e.g.  npm run media -- gallery/worship.jpg 3  (3 = the 4th search result).
-5. Stock photos are stand-ins. Replace the baptism, Nuru Toto children and staff slots with your real photos before launch.
-
-## Changing the hero video
-The hero video is `public/videos/hero.mp4` (your own footage always wins; ideally real video of your congregation, muted, 10-20s, under 8 MB).
-To pick a free stock clip by eye instead: browse pexels.com/search/videos/kenya%20church/, open a clip you like, and copy the number at the end of its link, then run
-`npm run media -- hero.mp4 --id=THAT_NUMBER` (needs PEXELS_API_KEY). Afterwards run `npm run media -- hero.jpg` or drop in a still from the same clip as the poster.
+## Photos
+- Which file goes where is set in `src/pages/index.astro` (hero, gallery, pillars), `src/pages/ministries.astro`, and `staff` in `src/config.ts`.
+- Use the exact file name, including spaces (e.g. `children 1.jpg`). Keep photos around 2000px wide or less so pages load quickly.
+- There are no placeholder boxes. If a photo is missing, that block drops its image and the text lays out on its own.
+- Renewed Hearts and Hybells currently have no photo. To add one, put the file in `public/img/` and set it in `pillars` (index.astro) and add a `<Photo src="your-file.jpg" class="mimg"/>` to its section in ministries.astro (and remove `single` from that section's class).

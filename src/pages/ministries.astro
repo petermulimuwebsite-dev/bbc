@@ -1,34 +1,33 @@
 ---
-import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro";
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import { hasImg } from "../img";
+const has = (...f:string[]) => f.every(hasImg);
 ---
 <Base title="Ministries">
 <section class="page-h"><div class="wrap"><h1>Five pillars of evangelism</h1><p class="lede">Every ministry is a way to serve people and point them to Christ.</p></div></section>
 
 <section id="church-planting" class="wrap m"><div class="mt"><h2>Church planting and evangelism</h2>
 <p>Church planting is the spiritual foundation of all our outreach. We establish vibrant, locally led congregations with Bible-based, structured leadership that preach the gospel, disciple believers and serve as anchors for fellowship, support and care.</p></div>
-<Photo src="lawrence-baptising.jpg" alt="Lawrence Odada baptising a new believer" class="mimg"/></section>
+<Photo src="Lawrance performing Baptist.jpg" alt="Pastor Lawrence Odada baptising a new believer" class="mimg" pos="50% 40%"/></section>
 
 <section id="water" class="wrap m flip"><div class="mt"><h2>Jacob’s Well clean water project</h2>
 <p>Inspired by John 4:5–14, this mission brings solar-powered boreholes and reverse osmosis purification to semi-arid areas and to churches with no water. When neighbours come to draw water, a disciple is there to talk about the living water Christ offers.</p>
 <p>The wells also supply fresh drinking water for sale, water for baptism, and water for small-scale farming and poultry. One of our wells needs restoration.</p>
 <a class="btn" href="/give#water">Give to Jacob’s Well</a></div>
-<Photo src="water-drilling-truck.jpg" alt="Water drilling truck at work in Kenya" class="mimg"/></section>
+<Photo src="water drilling.jpg" alt="Drilling pipes and rig at a Jacob’s Well borehole site" class="mimg"/></section>
 
 <section id="nuru-toto" class="wrap m"><div class="mt"><h2>Nuru Toto children’s home</h2>
 <p>Nuru Toto means “children of the light.” We care for 30 vulnerable, orphaned or neglected children, the youngest just three weeks old. Each child receives safe housing, nutritious meals, healthcare, education and daily teaching from the Word of God.</p>
 <a class="btn" href="/give#nuru">Support the children</a></div>
-<div class="kids"><Photo src="children/children-1.jpg" alt="Nuru Toto children" class="mimg"/><Photo src="children/children-2.jpg" alt="Nuru Toto children" class="mimg"/><Photo src="children/children-3.jpg" alt="Nuru Toto children" class="mimg"/></div></section>
+<div class="kids"><Photo src="children 1.jpg" alt="Children of Nuru Toto gathered together" class="mimg"/><Photo src="children 22.jpg" alt="Children and caregivers under the tent at Nuru Toto" class="mimg"/><Photo src="chidren3.jpg" alt="Nuru Toto children playing together" class="mimg"/></div></section>
 
-<section id="renewed-hearts" class="wrap m"><div class="mt"><h2>Renewed Hearts Association</h2>
-<p>For people walking through addiction, divorce or a search for who they are. Through pastoral counseling, family life enrichment and community outreach, we support emotional healing, trauma recovery and spiritual restoration, and refer to partner organizations where professional help is needed. Most of those we serve are men struggling with substance addiction.</p></div>
-<Photo src="renewed-hearts.jpg" alt="Kenyan pastor counseling a man at Renewed Hearts" class="mimg"/></section>
+<section id="renewed-hearts" class="wrap m single"><div class="mt"><h2>Renewed Hearts Association</h2>
+<p>For people walking through addiction, divorce or a search for who they are. Through pastoral counseling, family life enrichment and community outreach, we support emotional healing, trauma recovery and spiritual restoration, and refer to partner organizations where professional help is needed. Most of those we serve are men struggling with substance addiction.</p></div></section>
 
-<section id="hybells" class="wrap m flip"><div class="mt"><h2>Hybells Christian School for Technical Skills</h2>
+<section id="hybells" class="wrap m single"><div class="mt"><h2>Hybells Christian School for Technical Skills</h2>
 <p>Hybells is a technical school that trains youth, church planters and women in practical, market-driven skills, so that faith and dignified work go hand in hand. It is key to our church planting and leadership development.</p>
 <p><b>Skills courses:</b> fashion design, masonry, welding, auto mechanics, video editing, food technology, web design, IT, plumbing, electrical installation and hairdressing, with entrepreneurship mentorship and character training.</p>
 <p><b>Bible courses are compulsory.</b> Every student takes the foundations of faith: Old Testament survey, New Testament survey, church history and salvation.</p>
-<p><b>Leadership development.</b> Students also take leadership development courses, preparing them to lead well in their trade, their family and their church.</p></div>
-<Photo src="hybells-students.jpg" alt="Kenyan students learning a trade at Hybells Christian School" class="mimg"/></section>
+<p><b>Leadership development.</b> Students also take leadership development courses, preparing them to lead well in their trade, their family and their church.</p></div></section>
 
 <section class="band"><div class="wrap"><h2>Partner with us</h2>
 <ul class="partners"><li><b>Infrastructure and capital funding.</b> Water system upgrades, Nuru Toto facilities and Hybells equipment.</li>
