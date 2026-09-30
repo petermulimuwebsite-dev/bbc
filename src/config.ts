@@ -13,6 +13,11 @@ export const site = {
   services: "Sundays. Call us for service times.",
 };
 // Photos live in public/img. If a photo is missing, that person simply shows without one.
+// Hero background video: paste any direct .mp4 link here. Nothing else on the site is loaded from the internet.
+// Current clip: Pexels "A diverse choir passionately sings in a sunlit church" by cottonbro studio (free licence)
+// Page: https://www.pexels.com/video/a-choir-singing-inside-the-church-7520500/
+export const heroVideo = "https://videos.pexels.com/video-files/7520500/7520500-uhd_2732_1440_25fps.mp4";
+
 export const staff = [
   { name: "Peter Milimo", role: "Lead Pastor", img: "Peter Milimo_ Lead Pastor.png", pos: "50% 25%" },
   { name: "Felix Matuvwi", role: "Youth Pastor and Secretary General", img: "Felix Matuvwi Yourth pastor and the secrtary general.jpg", pos: "50% 25%" },

@@ -1,5 +1,5 @@
 ---
-import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import ContactForm from "../components/ContactForm.astro"; import { hasImg } from "../img"; import { site, books, bookInfo } from "../config";
+import Base from "../layouts/Base.astro"; import Photo from "../components/Photo.astro"; import ContactForm from "../components/ContactForm.astro"; import { hasImg } from "../img"; import { site, books, bookInfo, heroVideo } from "../config";
 const pillars = [
  ["Church planting and evangelism","Vibrant, locally led congregations with Bible-based leadership that preach the gospel and disciple believers.","/ministries#church-planting","Lawrance performing Baptist.jpg","50% 40%"],
  ["Jacob’s Well clean water project","Solar-powered boreholes and purification, with a disciple ready to share the living water of John 4.","/ministries#water","water drilling.jpg","50% 50%"],
@@ -9,7 +9,7 @@ const pillars = [
 ];
 ---
 <Base title="Home">
-<section class="hero"><Photo src="church cover photo.jpg" alt="" class="hero-img" pos="50% 40%"/>
+<section class="hero">{heroVideo && <video class="hero-vid" autoplay muted loop playsinline preload="auto" aria-hidden="true"><source src={heroVideo} type="video/mp4"/></video>}
  <div class="wrap hero-in"><h1>Welcome to<br/>{site.name}</h1><hr class="rule"/>
  <p class="lede">Planting churches, drilling wells, raising children and restoring lives across Kenya.</p>
  <div class="btns"><a class="btn ghost" href="/beliefs">What we believe</a><a class="btn ghost" href="/ministries">Our ministries</a></div></div></section>
