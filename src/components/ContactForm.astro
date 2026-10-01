@@ -5,7 +5,7 @@ import { site } from "../config";
   <div class="row2"><label>First name<input name="first_name" required autocomplete="given-name"/></label>
   <label>Last name<input name="last_name" autocomplete="family-name"/></label></div>
   <label>Email<input type="email" name="email" required autocomplete="email"/></label>
-  <label>Phone<input type="tel" name="phone" autocomplete="tel"/></label>
+  <label>Phone<input type="tel" name="phone" autocomplete="tel" value="+254" placeholder="+254 7XX XXX XXX" pattern="\+254([0-9 ]{9,})?" title="Phone number starting with +254, e.g. +254 748 390 940"/></label>
   <label>Message<textarea name="message" rows="5" required></textarea></label>
   <input type="hidden" name="_subject" value="New message from the church website"/>
   <button class="btn" type="submit">Send message</button>

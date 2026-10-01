@@ -9,14 +9,12 @@ export const site = {
   paypalUser: "YOUR_PAYPAL_USERNAME",
   // Free form service, e.g. create a form at formspree.io or web3forms.com and paste its URL here.
   formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
-  location: "Kenya",
+  location: "Kenya and around the world",
   services: "Sundays. Call us for service times.",
 };
 // Photos live in public/img. If a photo is missing, that person simply shows without one.
-// Hero background video: paste any direct .mp4 link here. Nothing else on the site is loaded from the internet.
-// Current clip: Pexels "A diverse choir passionately sings in a sunlit church" by cottonbro studio (free licence)
-// Page: https://www.pexels.com/video/a-choir-singing-inside-the-church-7520500/
-export const heroVideo = "https://videos.pexels.com/video-files/7520500/7520500-uhd_2732_1440_25fps.mp4";
+// Hero background video: served from public/video/hero.mp4 (no external link). To change it, replace that file.
+export const heroVideo = "/video/hero.mp4";
 
 export const staff = [
   { name: "Peter Milimo", role: "Lead Pastor", img: "Peter Milimo_ Lead Pastor.png", pos: "50% 25%" },
