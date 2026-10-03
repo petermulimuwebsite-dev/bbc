@@ -13,9 +13,6 @@ export const site = {
   services: "Sundays. Call us for service times.",
 };
 // Photos live in public/img. If a photo is missing, that person simply shows without one.
-// Hero background video: served from public/video/hero.mp4 (no external link). To change it, replace that file.
-export const heroVideo = "/video/hero.mp4";
-
 export const staff = [
   { name: "Peter Milimo", role: "Lead Pastor", img: "Peter Milimo_ Lead Pastor.png", pos: "50% 25%" },
   { name: "Felix Matuvwi", role: "Youth Pastor and Secretary General", img: "Felix Matuvwi Yourth pastor and the secrtary general.jpg", pos: "50% 25%" },
