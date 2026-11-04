@@ -23,7 +23,7 @@ const nav = [["/","Home"],["/about","About"],["/beliefs","Beliefs"],["/ministrie
 <footer><div class="wrap fgrid">
   <div><p class="fname">{site.name}</p><p>Five pillars of evangelism. One gospel.</p></div>
   <div><p class="fh">Contact</p><p><a href={`tel:${site.phone}`}>{site.phone}</a><br/><a href={`https://wa.me/${site.whatsapp}`}>WhatsApp us</a></p></div>
-  <div><p class="fh">Give by M-Pesa</p><p>Paybill {site.paybill.number}<br/>Account {site.paybill.account}</p></div>
+  <div><p class="fh">Give</p><p>M-Pesa Paybill {site.paybill.number}<br/>Account {site.paybill.account}<br/>Co-op Bank SWIFT {site.bank.swift}<br/><a href="/give#water">PayPal or card</a></p></div>
 </div><p class="wrap copy">© {new Date().getFullYear()} {site.name}</p></footer>
 <script is:inline>
 (()=>{

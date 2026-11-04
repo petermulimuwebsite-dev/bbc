@@ -5,8 +5,11 @@ export const site = {
   phone: "+254-748-390-940",
   whatsapp: "254748390940",
   paybill: { business: "Bible believes christ church", number: "400200", account: "1136158" },
-  // PayPal.me username (paypal.me/YourName). Replace with the church's real one.
-  paypalUser: "YOUR_PAYPAL_USERNAME",
+  // PayPal account email that receives gifts (used for the PayPal donate button).
+  paypalEmail: "jkanini53@yahoo.com",
+  // Co-operative Bank account for the church. Add the account number below when you have it;
+  // the row stays hidden on the site until it is filled in.
+  bank: { name: "Co-operative Bank of Kenya", accountName: "Bible Believers Christ Church", accountNumber: "", swift: "KCOOKENA", bankCode: "11" },
   // Free form service, e.g. create a form at formspree.io or web3forms.com and paste its URL here.
   formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
   location: "Kenya and around the world",
