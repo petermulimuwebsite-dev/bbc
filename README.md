@@ -4,7 +4,7 @@
     npm run dev      # local preview
     npm run build    # output in /dist, upload to any host (Netlify, Vercel, Cloudflare Pages)
 
-1. Edit `src/config.ts` for phone, paybill, PayPal email, Co-op bank details, contact-form URL, staff and books.
+1. Edit `src/config.ts` for phone, paybill, PayPal email, Co-op bank accounts (KES and USD), contact-form URL, staff and books.
 2. All photos are local files in `public/img/`. The site never loads images from the internet.
 
 ## Photos

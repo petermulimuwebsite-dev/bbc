@@ -7,9 +7,10 @@ export const site = {
   paybill: { business: "Bible believes christ church", number: "400200", account: "1136158" },
   // PayPal account email that receives gifts (used for the PayPal donate button).
   paypalEmail: "jkanini53@yahoo.com",
-  // Co-operative Bank account for the church. Add the account number below when you have it;
-  // the row stays hidden on the site until it is filled in.
-  bank: { name: "Co-operative Bank of Kenya", accountName: "Bible Believers Christ Church", accountNumber: "011027160180001", swift: "KCOOKENA", bankCode: "11" },
+  // Shown on the Give page so people can send PayPal money manually (separate from the donate button above).
+  paypalManualEmail: "jkanini53@yahoo.com",
+  // Co-operative Bank accounts for the church (one per currency).
+  bank: { name: "Co-operative Bank of Kenya", accountName: "Bible Believers Christ Church", accounts: [{ currency: "KES", number: "01102716018001" }, { currency: "USD", number: "02102716018002" }], swift: "KCOOKENA", bankCode: "11" },
   // Free form service, e.g. create a form at formspree.io or web3forms.com and paste its URL here.
   formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
   location: "Kenya and around the world",

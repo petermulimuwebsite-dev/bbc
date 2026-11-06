@@ -10,7 +10,7 @@ import Base from "../layouts/Base.astro"; import { site, bookInfo } from "../con
 
  <div class="gbox" id="bank"><h2>Bank transfer (Co-op Bank)</h2><dl>
   <dt>Bank</dt><dd>{site.bank.name}</dd><dt>Account name</dt><dd>{site.bank.accountName}</dd>
-  {site.bank.accountNumber && <><dt>Account number</dt><dd class="num">{site.bank.accountNumber}</dd></>}
+  {site.bank.accounts.map(a=><><dt>{a.currency} account number</dt><dd class="num">{a.number}</dd></>)}
   <dt>SWIFT code</dt><dd class="num">{site.bank.swift}</dd><dt>Bank code</dt><dd class="num">{site.bank.bankCode}</dd></dl>
   <p>Use these details for local or international bank transfers.</p></div>
 
@@ -20,6 +20,7 @@ import Base from "../layouts/Base.astro"; import { site, bookInfo } from "../con
   <div class="amts" role="group" aria-label="Amount in US dollars"><button type="button" data-a="10">$10</button><button type="button" data-a="25" class="sel">$25</button><button type="button" data-a="50">$50</button><button type="button" data-a="100">$100</button></div>
   <label>Other amount (USD)<input id="other" type="number" min="1" inputmode="numeric" placeholder="e.g. 75"/></label>
   <a id="pp" class="btn" href="#" rel="noopener">Give with PayPal or card</a>
+  <p class="small"><strong>Prefer to send manually?</strong> Send directly through PayPal to this email: <a class="link num" href={`mailto:${site.paypalManualEmail}`}>{site.paypalManualEmail}</a></p>
   <p class="small">Fund selected: <span id="fl"></span>. The fund name is sent with your gift as the PayPal note.</p></div>
 <div class="gbox wide" id="books"><h2>Buy a book by M-Pesa</h2><p>{bookInfo.price} per copy. Your softcopy is sent by email after you pay.</p>
  <dl><dt>Paybill number</dt><dd class="num">{bookInfo.paybill}</dd><dt>Account number</dt><dd class="num">{bookInfo.account}</dd><dt>Account name</dt><dd>{bookInfo.accountName}</dd></dl>
